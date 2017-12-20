@@ -8,6 +8,7 @@ import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import className from 'classnames/bind';
 import DateModal from './DateModal';
+import axios from 'axios';
 
 const cx = className.bind(require('./css/Calendar.css'));
 
@@ -18,12 +19,33 @@ class DateCalendar extends React.Component {
     super();
 
     this.state = {
+      year: '',
+      month: '',
       events: [],
       dateModal: false,
       date: ''
     };
+
     this.handleSelectEvent= this.handleSelectEvent.bind(this);
     this.modalClose = this.modalClose.bind(this);
+  }
+
+  componentWillMount() {
+    console.log('here');
+    axios.get('/calendar/diary/2017/12').then((data) => {
+      const convertedEvents = [];
+      data.data.map((item, index) => (
+        convertedEvents.push({
+          title: item.title,
+          //TODO:woongs month-1 개선 필요
+          start: new Date(item.year, item.month-1, item.day),
+          end: new Date(item.year, item.month-1, item.day)
+        })
+      ));
+      this.setState({
+        events: convertedEvents
+      })
+    })
   }
 
   formatDate(date) {

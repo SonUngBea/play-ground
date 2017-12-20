@@ -47,6 +47,8 @@ allprojects {
         compile 'org.springframework.data:spring-data-jpa:1.7.0.RELEASE'
 
         compile 'org.modelmapper:modelmapper:0.7.8'
+
+        compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
     }
 
 }

@@ -17,27 +17,25 @@
           <element id="dir-copy" path="$PROJECT_DIR$/play-ground-web/build/resources/main" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.1.6.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-test:3.2.14.RELEASE" />
-          <element id="library" level="project" name="Gradle: javax.servlet:javax.servlet-api:3.1.0" />
-          <element id="library" level="project" name="Gradle: javax.servlet.jsp:javax.servlet.jsp-api:2.3.1" />
           <element id="library" level="project" name="Gradle: javax.servlet:jstl:1.2" />
-          <element id="library" level="project" name="Gradle: com.github.jknack:handlebars:1.3.2" />
+          <element id="library" level="project" name="Gradle: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" />
           <element id="library" level="project" name="Gradle: com.github.jknack:handlebars-springmvc:1.3.2" />
-          <element id="library" level="project" name="Gradle: org.mybatis:mybatis:3.2.3" />
+          <element id="library" level="project" name="Gradle: javax.persistence:persistence-api:1.0" />
           <element id="library" level="project" name="Gradle: org.apache.commons:commons-dbcp2:2.1" />
-          <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.37" />
+          <element id="library" level="project" name="Gradle: org.modelmapper:modelmapper:0.7.8" />
           <element id="library" level="project" name="Gradle: org.mybatis:mybatis-spring:1.2.2" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-tx:4.3.9.RELEASE" />
           <element id="library" level="project" name="Gradle: org.projectlombok:lombok:1.16.18" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-context:4.3.7.RELEASE" />
           <element id="library" level="project" name="Gradle: org.hibernate:hibernate-core:5.2.10.Final" />
-          <element id="library" level="project" name="Gradle: javax.persistence:persistence-api:1.0" />
+          <element id="library" level="project" name="Gradle: org.mybatis:mybatis:3.2.3" />
           <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-jpa:1.7.0.RELEASE" />
+          <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.37" />
           <element id="archive" name="play-ground-play-ground-domain-1.0-SNAPSHOT.jar">
             <element id="module-output" name="play-ground-domain_main" />
             <element id="dir-copy" path="$PROJECT_DIR$/play-ground-domain/build/resources/main" />
           </element>
+          <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-commons:1.9.0.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.1.6.RELEASE" />
           <element id="library" level="project" name="Gradle: org.apache.commons:commons-lang3:3.1" />
           <element id="library" level="project" name="Gradle: org.antlr:antlr4-runtime:4.2.2" />
@@ -51,9 +49,8 @@
           <element id="library" level="project" name="Gradle: org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.0.1.Final" />
           <element id="library" level="project" name="Gradle: org.jboss:jandex:2.0.3.Final" />
           <element id="library" level="project" name="Gradle: com.fasterxml:classmate:1.3.0" />
-          <element id="library" level="project" name="Gradle: dom4j:dom4j:1.6.1" />
-          <element id="library" level="project" name="Gradle: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" />
-          <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-commons:1.9.0.RELEASE" />
+          <element id="library" level="project" name="Gradle: javax.servlet.jsp:javax.servlet.jsp-api:2.3.1" />
+          <element id="library" level="project" name="Gradle: com.github.jknack:handlebars:1.3.2" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-orm:4.0.7.RELEASE" />
           <element id="library" level="project" name="Gradle: org.aspectj:aspectjrt:1.8.2" />
           <element id="library" level="project" name="Gradle: org.slf4j:jcl-over-slf4j:1.7.7" />
@@ -63,8 +60,14 @@
           <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.7" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-jdbc:4.0.7.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.3.7.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.1.6.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-test:3.2.14.RELEASE" />
+          <element id="library" level="project" name="Gradle: javax.servlet:javax.servlet-api:3.1.0" />
+          <element id="library" level="project" name="Gradle: dom4j:dom4j:1.6.1" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.3.7.RELEASE" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.modelmapper/modelmapper/0.7.8/2da930bf142d21a353124e2222cf17316c0e9fc/modelmapper-0.7.8.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.5.1/5e57baebad3898aca8a825adaf2be6fd189442f2/jackson-databind-2.5.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.5.0/a2a55a3375bc1cef830ca426d68d2ea22961190e/jackson-annotations-2.5.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.5.1/e2a00ad1d7e540ec395e9296a34da484c8888d4d/jackson-core-2.5.1.jar" />
         </element>
       </element>
     </root>

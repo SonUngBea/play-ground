@@ -28,6 +28,7 @@
     <orderEntry type="library" name="Gradle: javax.persistence:persistence-api:1.0" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.data:spring-data-jpa:1.7.0.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.modelmapper:modelmapper:0.7.8" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.5.1" level="project" />
     <orderEntry type="module" module-name="play-ground-domain_main" />
     <orderEntry type="library" name="Gradle: junit:junit:4.11" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-web:4.1.6.RELEASE" level="project" />
@@ -49,6 +50,8 @@
     <orderEntry type="library" name="Gradle: org.springframework:spring-orm:4.0.7.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.aspectj:aspectjrt:1.8.2" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:jcl-over-slf4j:1.7.7" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.5.1" level="project" />
     <orderEntry type="library" name="Gradle: org.hamcrest:hamcrest-core:1.3" level="project" />
     <orderEntry type="library" name="Gradle: org.antlr:antlr4-annotations:4.2.2" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-core:4.3.9.RELEASE" level="project" />
