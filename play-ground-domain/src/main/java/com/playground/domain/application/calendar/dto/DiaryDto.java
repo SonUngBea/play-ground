@@ -3,7 +3,7 @@ package com.playground.domain.application.calendar.dto;
 import lombok.*;
 
 /**
- * Created by coupang on 2017. 12. 18..
+ * Created by woongs on 2017. 12. 18..
  */
 @Getter
 @Setter
@@ -22,4 +22,6 @@ public class DiaryDto {
 	private Integer month;
 
 	private Integer day;
+
+	private String content;
 }

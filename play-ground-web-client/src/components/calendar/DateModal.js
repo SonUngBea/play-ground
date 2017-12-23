@@ -11,16 +11,31 @@ class DateModal extends React.Component {
 
   props: {
     showModal: boolean,
-    date: string
+    date: string,
+    title: string,
+    content: string
   };
 
   render(){
-    const {showModal, date} = this.props;
+    const {showModal, date, title, content} = this.props;
     return (
       <Modal show={showModal}>
-        <div>
-          {date}
-        </div>
+        <Modal.Header closeButton>
+          <div>
+            {date}
+          </div>
+          <div>
+            {title}
+          </div>
+        </Modal.Header>
+        <Modal.Body>
+          <div>
+            {content}
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+
+        </Modal.Footer>
       </Modal>
     );
   }

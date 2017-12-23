@@ -18,9 +18,10 @@ class DateCalendar extends React.Component {
   constructor() {
     super();
 
+    let nowDate = new Date();
     this.state = {
-      year: '',
-      month: '',
+      year: nowDate.getFullYear().toString(),
+      month: (nowDate.getMonth() + 1).toString(),
       events: [],
       dateModal: false,
       date: ''
@@ -28,22 +29,52 @@ class DateCalendar extends React.Component {
 
     this.handleSelectEvent= this.handleSelectEvent.bind(this);
     this.modalClose = this.modalClose.bind(this);
+    this.getDiaryTitleData = this.getDiaryTitleData.bind(this);
+    this.getDiaryContentData = this.getDiaryContentData.bind(this);
+
+    this.getDiaryTitleData(nowDate.getFullYear().toString(), (nowDate.getMonth() + 1).toString());
   }
 
-  componentWillMount() {
-    console.log('here');
-    axios.get('/calendar/diary/2017/12').then((data) => {
+  getDiaryTitleData(year, month) {
+    axios.get('/calendar/diary/list', {
+      params : {
+        year: year,
+        month: month
+      }
+    }).then((data) => {
+      console.log(data);
+      if (data === undefined || data.data === null || data.data == "") {
+        return;
+      }
       const convertedEvents = [];
       data.data.map((item, index) => (
         convertedEvents.push({
           title: item.title,
-          //TODO:woongs month-1 개선 필요
           start: new Date(item.year, item.month-1, item.day),
           end: new Date(item.year, item.month-1, item.day)
         })
       ));
       this.setState({
         events: convertedEvents
+      })
+    })
+  }
+
+  getDiaryContentData(year, month, day) {
+    axios.get('/calendar/diary/', {
+      params : {
+        year: year,
+        month: month,
+        day: day
+      }
+    }).then((data) => {
+      console.log(data.data);
+      if (data === undefined || data.data === null || data.data == "") {
+        return;
+      }
+      this.setState({
+        title: data.data.title,
+        content: data.data.content
       })
     })
   }
@@ -63,19 +94,19 @@ class DateCalendar extends React.Component {
   }
 
   handleSelectEvent(slotInfo) {
-    console.log("handleSelectEvent's event="+slotInfo.start);
+    this.getDiaryContentData(slotInfo.start.getFullYear(), slotInfo.start.getMonth() + 1, slotInfo.start.getDate());
     this.setState({
       dateModal: true,
       date: this.formatDate(slotInfo.start)
     })
   }
 
-
-
   modalClose() {
     this.setState({
       dateModal: false,
-      date: ''
+      date: '',
+      title: '',
+      content: ''
     });
   }
 
@@ -89,10 +120,15 @@ class DateCalendar extends React.Component {
           onSelectSlot={(slotInfo) => this.handleSelectEvent(slotInfo)}
           views={['month']}
           style={{height: 800}}
+          onNavigate={(date) => {
+            this.getDiaryTitleData(date.getFullYear().toString(), (date.getMonth()+1).toString());
+          }}
         />
         <DateModal
           showModal={this.state.dateModal}
           date={this.state.date}
+          title={this.state.title}
+          content={this.state.content}
         />
       </div>
 

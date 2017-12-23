@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Created by coupang on 2017. 12. 18..
+ * Created by woongs on 2017. 12. 18..
  */
 @Service
 public class CalendarService {
@@ -30,5 +30,13 @@ public class CalendarService {
 			return modelMapper.map(diary, DiaryDto.class);
 		}).collect(Collectors.toList());
 
+	}
+
+	public DiaryDto findDiaryByYearAndMonthAndDay(Integer year, Integer month, Integer day) {
+		Diary diary = diaryRepository.findByYearAndMonthAndDay(year, month, day);
+		if (diary == null) {
+			return null;
+		}
+		return modelMapper.map(diary, DiaryDto.class);
 	}
 }

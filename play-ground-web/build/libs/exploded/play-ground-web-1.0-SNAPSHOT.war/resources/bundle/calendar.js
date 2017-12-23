@@ -60914,7 +60914,10 @@ var DateCalendar = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (DateCalendar.__proto__ || Object.getPrototypeOf(DateCalendar)).call(this));
 
+    var nowDate = new Date();
     _this.state = {
+      year: nowDate.getFullYear().toString(),
+      month: (nowDate.getMonth() + 1).toString(),
       events: [],
       dateModal: false,
       date: ''
@@ -60922,27 +60925,60 @@ var DateCalendar = function (_React$Component) {
 
     _this.handleSelectEvent = _this.handleSelectEvent.bind(_this);
     _this.modalClose = _this.modalClose.bind(_this);
+    _this.getDiaryTitleData = _this.getDiaryTitleData.bind(_this);
+    _this.getDiaryContentData = _this.getDiaryContentData.bind(_this);
+
+    _this.getDiaryTitleData(nowDate.getFullYear().toString(), (nowDate.getMonth() + 1).toString());
     return _this;
   }
 
   _createClass(DateCalendar, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
+    key: 'getDiaryTitleData',
+    value: function getDiaryTitleData(year, month) {
       var _this2 = this;
 
-      console.log('here');
-      _axios2.default.get('/calendar/diary/2017/12').then(function (data) {
+      _axios2.default.get('/calendar/diary/list', {
+        params: {
+          year: year,
+          month: month
+        }
+      }).then(function (data) {
+        console.log(data);
+        if (data === undefined || data.data === null || data.data == "") {
+          return;
+        }
         var convertedEvents = [];
         data.data.map(function (item, index) {
           return convertedEvents.push({
             title: item.title,
-            //TODO:woongs month-1 개선 필요
             start: new Date(item.year, item.month - 1, item.day),
             end: new Date(item.year, item.month - 1, item.day)
           });
         });
         _this2.setState({
           events: convertedEvents
+        });
+      });
+    }
+  }, {
+    key: 'getDiaryContentData',
+    value: function getDiaryContentData(year, month, day) {
+      var _this3 = this;
+
+      _axios2.default.get('/calendar/diary/', {
+        params: {
+          year: year,
+          month: month,
+          day: day
+        }
+      }).then(function (data) {
+        console.log(data.data);
+        if (data === undefined || data.data === null || data.data == "") {
+          return;
+        }
+        _this3.setState({
+          title: data.data.title,
+          content: data.data.content
         });
       });
     }
@@ -60964,7 +61000,7 @@ var DateCalendar = function (_React$Component) {
   }, {
     key: 'handleSelectEvent',
     value: function handleSelectEvent(slotInfo) {
-      console.log("handleSelectEvent's event=" + slotInfo.start);
+      this.getDiaryContentData(slotInfo.start.getFullYear(), slotInfo.start.getMonth() + 1, slotInfo.start.getDate());
       this.setState({
         dateModal: true,
         date: this.formatDate(slotInfo.start)
@@ -60975,13 +61011,15 @@ var DateCalendar = function (_React$Component) {
     value: function modalClose() {
       this.setState({
         dateModal: false,
-        date: ''
+        date: '',
+        title: '',
+        content: ''
       });
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       return _react2.default.createElement(
         'div',
@@ -60990,14 +61028,19 @@ var DateCalendar = function (_React$Component) {
           selectable: true,
           events: this.state.events,
           onSelectSlot: function onSelectSlot(slotInfo) {
-            return _this3.handleSelectEvent(slotInfo);
+            return _this4.handleSelectEvent(slotInfo);
           },
           views: ['month'],
-          style: { height: 800 }
+          style: { height: 800 },
+          onNavigate: function onNavigate(date) {
+            _this4.getDiaryTitleData(date.getFullYear().toString(), (date.getMonth() + 1).toString());
+          }
         }),
         _react2.default.createElement(_DateModal2.default, {
           showModal: this.state.dateModal,
-          date: this.state.date
+          date: this.state.date,
+          title: this.state.title,
+          content: this.state.content
         })
       );
     }
@@ -69832,16 +69875,33 @@ var DateModal = function (_React$Component) {
     value: function render() {
       var _props = this.props,
           showModal = _props.showModal,
-          date = _props.date;
+          date = _props.date,
+          title = _props.title,
+          content = _props.content;
 
       return _react2.default.createElement(
         _reactBootstrap.Modal,
         { show: showModal },
         _react2.default.createElement(
-          'div',
+          _reactBootstrap.Modal.Header,
+          { closeButton: true },
+          _react2.default.createElement(
+            'div',
+            null,
+            date,
+            title
+          )
+        ),
+        _react2.default.createElement(
+          _reactBootstrap.Modal.Body,
           null,
-          date
-        )
+          _react2.default.createElement(
+            'div',
+            null,
+            content
+          )
+        ),
+        _react2.default.createElement(_reactBootstrap.Modal.Footer, null)
       );
     }
   }]);

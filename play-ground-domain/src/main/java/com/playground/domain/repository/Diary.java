@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * Created by coupang on 2017. 12. 18..
+ * Created by woongs on 2017. 12. 18..
  */
 @Entity
 @Data
@@ -31,4 +31,7 @@ public class Diary {
 
 	@Column(name = "day")
 	private Integer day;
+
+	@Column(name = "content")
+	private String content;
 }

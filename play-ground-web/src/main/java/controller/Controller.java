@@ -1,7 +1,7 @@
 package controller;
 
 /**
- * Created by coupang on 2017. 12. 15..
+ * Created by woongs on 2017. 12. 15..
  */
 public interface Controller {
 }

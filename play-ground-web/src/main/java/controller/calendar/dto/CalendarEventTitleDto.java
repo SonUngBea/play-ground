@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.util.Date;
 
 /**
- * Created by coupang on 2017. 12. 18..
+ * Created by woongs on 2017. 12. 18..
  */
 @Getter
 @Setter

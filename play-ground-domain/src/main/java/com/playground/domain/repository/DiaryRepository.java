@@ -11,4 +11,6 @@ import java.util.List;
 @Repository
 public interface DiaryRepository extends CrudRepository<Diary, Integer> {
 	List<Diary> findByYearAndMonth(Integer year, Integer month);
+
+	Diary findByYearAndMonthAndDay(Integer year, Integer month, Integer day);
 }
