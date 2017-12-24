@@ -69888,7 +69888,11 @@ var DateModal = function (_React$Component) {
           _react2.default.createElement(
             'div',
             null,
-            date,
+            date
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
             title
           )
         ),

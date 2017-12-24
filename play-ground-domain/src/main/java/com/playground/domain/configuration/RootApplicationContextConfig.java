@@ -30,7 +30,7 @@ public class RootApplicationContextConfig {
 		dataSource.setUsername("thsdndqo00");
 		dataSource.setPassword("dndqo00!!");
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://mydb.cfo1wk7ynb2z.ap-northeast-2.rds.amazonaws.com:3306/playground");
+		dataSource.setUrl("jdbc:mysql://mydb.cfo1wk7ynb2z.ap-northeast-2.rds.amazonaws.com:3306/playground?useUnicode=yes&characterEncoding=UTF-8");
 
 		return dataSource;
 	}
