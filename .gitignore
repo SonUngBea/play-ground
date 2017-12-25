@@ -1,3 +1,9 @@
+.idea
+*.iml
+classes/
+lib/
+*.war
+/.cache
+build/
 .gradle/
-.idea/
-*/src/generated/
+.idea/workspace.xml

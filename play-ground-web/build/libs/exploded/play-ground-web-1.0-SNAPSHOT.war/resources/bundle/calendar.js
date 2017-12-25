@@ -69890,7 +69890,6 @@ var DateModal = function (_React$Component) {
             null,
             date
           ),
-          _react2.default.createElement('br', null),
           _react2.default.createElement(
             'div',
             null,
